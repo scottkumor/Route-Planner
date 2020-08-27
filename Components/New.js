@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet, View, TextInput, } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -20,9 +22,20 @@ export default class New extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text sytle={styles.textTitle}>You made It!</Text>
-            </View>
+            <View 
+            // style={styles.container}
+            >
+                <MapView 
+                    provider={PROVIDER_GOOGLE}
+                    showsUserLocation
+                    initialRegion={{
+                        latitude:41.8781,
+                        longitude: 87.6298,
+                        latitudeDelta: .01,
+                        longitudeDelta: .01
+                    }}
+                />
+          </View>
         )
     };
 }
